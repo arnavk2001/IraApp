@@ -1,0 +1,118 @@
+{
+  "project_info": {
+    "project_number": "264706804213",
+    "project_id": "pict-idk",
+    "storage_bucket": "pict-idk.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:264706804213:android:b568aaaefde07d1dd0f8bc",
+        "android_client_info": {
+          "package_name": "com.example.idk"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "264706804213-fith7tkrr2ivmrqo4iq2vao78gp6ba8i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyClK5JYpP77nshFFEjURsxFSVEtyLG_us4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "264706804213-fith7tkrr2ivmrqo4iq2vao78gp6ba8i.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "264706804213-5doo3ns2jc9ekt2i99tc3ti7ab5gdc2m.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.pictira"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:264706804213:android:1f0ba7b679e2bed3d0f8bc",
+        "android_client_info": {
+          "package_name": "com.example.pictira"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "264706804213-fith7tkrr2ivmrqo4iq2vao78gp6ba8i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyClK5JYpP77nshFFEjURsxFSVEtyLG_us4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "264706804213-fith7tkrr2ivmrqo4iq2vao78gp6ba8i.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "264706804213-5doo3ns2jc9ekt2i99tc3ti7ab5gdc2m.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.pictira"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:264706804213:android:f6e309e0203aeb9dd0f8bc",
+        "android_client_info": {
+          "package_name": "com.pictira.ira"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "264706804213-fith7tkrr2ivmrqo4iq2vao78gp6ba8i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyClK5JYpP77nshFFEjURsxFSVEtyLG_us4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "264706804213-fith7tkrr2ivmrqo4iq2vao78gp6ba8i.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "264706804213-5doo3ns2jc9ekt2i99tc3ti7ab5gdc2m.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.pictira"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
