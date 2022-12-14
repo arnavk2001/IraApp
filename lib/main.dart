@@ -26,9 +26,10 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
 
-  var url = Uri.parse('https://iratime.herokuapp.com/');
+  var url = Uri.parse('http://worldtimeapi.org/api/timezone/Asia/Kolkata');
   var response = await http.get(url);
   // Response response = await get('https://iratime.herokuapp.com/' as Uri);
+
   Map m = jsonDecode(response.body);
   String datetime = m['datetime'];
   DateTime currentDate = DateTime.parse(datetime);
@@ -72,21 +73,32 @@ class PICTIRA extends StatelessWidget {
             );
           }),
       routes: {
-        BranchTabs.routeName: (context) => BranchTabs(currentDate: DateTime(2001,6,15,17,30),yearN: 'yoN',yearS: "yoS",),
+        BranchTabs.routeName: (context) => BranchTabs(
+              currentDate: DateTime(2001, 6, 15, 17, 30),
+              yearN: 'yoN',
+              yearS: "yoS",
+            ),
         SidePanel.routeName: (context) => SidePanel(
               currentDate: currentDate,
             ),
-        FirstYear.routeName: (context) => FirstYear(currentDate: DateTime(2001,6,15,17,30)),
+        FirstYear.routeName: (context) =>
+            FirstYear(currentDate: DateTime(2001, 6, 15, 17, 30)),
         HomeScreen.routeName: (context) => HomeScreen(
               currentDate: currentDate,
             ),
-        OtherInfoScreen.routeName: (context) => OtherInfoScreen(currentDate: DateTime(2001,6,15,17,30)),
+        OtherInfoScreen.routeName: (context) =>
+            OtherInfoScreen(currentDate: DateTime(2001, 6, 15, 17, 30)),
         SyllabusBranchScreen.routeName: (context) => SyllabusBranchScreen(),
         TtBranchScreen.routeName: (context) => TtBranchScreen(),
-        Notices.routeName: (context) => Notices(currentDate: DateTime(2001,6,15,17,30)),
+        Notices.routeName: (context) =>
+            Notices(currentDate: DateTime(2001, 6, 15, 17, 30)),
         NoticesTabs.routeName: (context) => NoticesTabs(),
         //ResetPasswordScreen.routeName: (context) => ResetPasswordScreen(),
-        MaterialReading.routeName: (context) => MaterialReading(currentDate: DateTime(2001,6,15,17,30),path: "yopath",subName: "yosubname",title:"yotitle"),
+        MaterialReading.routeName: (context) => MaterialReading(
+            currentDate: DateTime(2001, 6, 15, 17, 30),
+            path: "yopath",
+            subName: "yosubname",
+            title: "yotitle"),
         //ListViewBuilderScreen.routeName: (context) => ListViewBuilderScreen(),
         //ProfilePage.routeName:(context)=>ProfilePage(),
       },
