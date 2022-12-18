@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:device_info/device_info.dart';
+import 'package:device_info_plus/device_info_plus.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -218,7 +218,7 @@ class _AuthenticateState extends State<Authenticate> {
                             AndroidDeviceInfo androidInfo =
                                 await deviceInfoPlugin.androidInfo;
                             setState(() {
-                              _deviceID = androidInfo.androidId;
+                              _deviceID = androidInfo.id;
                             });
                             dynamic result = await _auth
                                 .createUserWithEmailAndPassword(
@@ -378,7 +378,7 @@ class _AuthenticateState extends State<Authenticate> {
                                     .get()
                                     .then((value) async {
                                   Map<String, dynamic>? m = value.data();
-                                  if (androidInfo.androidId == m!['deviceID']) {
+                                  if (androidInfo.id == m!['deviceID']) {
                                     if (!_auth.currentUser!.emailVerified) {
                                       Navigator.push(
                                           context,

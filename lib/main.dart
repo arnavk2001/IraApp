@@ -78,11 +78,14 @@ class PICTIRA extends StatelessWidget {
               yearN: 'yoN',
               yearS: "yoS",
             ),
+
         SidePanel.routeName: (context) => SidePanel(
               currentDate: currentDate,
             ),
+
         FirstYear.routeName: (context) =>
             FirstYear(currentDate: DateTime(2001, 6, 15, 17, 30)),
+
         HomeScreen.routeName: (context) => HomeScreen(
               currentDate: currentDate,
             ),
