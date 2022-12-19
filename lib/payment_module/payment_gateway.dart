@@ -7,7 +7,6 @@ import 'package:pictira/Home_screen.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:razorpay_flutter/razorpay_flutter.dart';
 
-
 import 'package:fluttertoast/fluttertoast.dart';
 
 class PaymentGateway extends StatefulWidget {
@@ -16,13 +15,16 @@ class PaymentGateway extends StatefulWidget {
   String mobileNo;
   String userName;
 
-  PaymentGateway({required this.currentDate,required this.email,required this.mobileNo,required this.userName});
+  PaymentGateway(
+      {required this.currentDate,
+      required this.email,
+      required this.mobileNo,
+      required this.userName});
   @override
   _PaymentGatewayState createState() => _PaymentGatewayState();
 }
 
 class _PaymentGatewayState extends State<PaymentGateway> {
-  
   static const platform = const MethodChannel("razorpay_flutter");
 
   late Razorpay _razorpay;
@@ -110,8 +112,8 @@ class _PaymentGatewayState extends State<PaymentGateway> {
                       return Column(
                         children: [
                           ElevatedButton(
-                            child:
-                                Text("Pay ₹${snapshot.data!['price'].toString()}/-"),
+                            child: Text(
+                                "Pay ₹${snapshot.data!['price'].toString()}/-"),
                             style: ElevatedButton.styleFrom(
                               primary: Color(0xff2e91a0),
                             ),
@@ -119,36 +121,54 @@ class _PaymentGatewayState extends State<PaymentGateway> {
                               openCheckout(snapshot.data!['priceRazopay']);
                             },
                           ),
-                          SizedBox(height: height*0.005,),
+                          SizedBox(
+                            height: height * 0.005,
+                          ),
                           IconButton(
-                            icon: Icon(Icons.logout,color: Color(0xff2e91a0),),
-                            onPressed: (){
-                              showDialog(context: context, builder: (ctx){
-                                return AlertDialog(
-                                  content: Text("Are you sure you want to logout?"),
-                                  actions: [
-                                    TextButton(onPressed: ()=>Navigator.pop(ctx), child: Text("No")),
-                                    TextButton(onPressed: ()async{
-                                      await FirebaseAuth.instance.signOut();
+                            icon: Icon(
+                              Icons.logout,
+                              color: Color(0xff2e91a0),
+                            ),
+                            onPressed: () {
+                              showDialog(
+                                context: context,
+                                builder: (ctx) {
+                                  return AlertDialog(
+                                    content: Text(
+                                        "Are you sure you want to logout?"),
+                                    actions: [
+                                      TextButton(
+                                          onPressed: () => Navigator.pop(ctx),
+                                          child: Text("No")),
+                                      TextButton(
+                                          onPressed: () async {
+                                            await FirebaseAuth.instance
+                                                .signOut();
 
-                                      Navigator.pop(ctx);
-                                      // while(Navigator.canPop(context)){ // Navigator.canPop return true if can pop
-                                      //   Navigator.pop(context);
-                                      // }
-                                      //Navigator.popUntil(context, (Route<dynamic> route) => route.isFirst);
-                                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (c)=>Authenticate(currentDate: widget.currentDate,)));
-                                    },
-                                        child: Text("Yes"))
-                                  ],
-                                );
-                              },
+                                            Navigator.pop(ctx);
+                                            // while(Navigator.canPop(context)){ // Navigator.canPop return true if can pop
+                                            //   Navigator.pop(context);
+                                            // }
+                                            //Navigator.popUntil(context, (Route<dynamic> route) => route.isFirst);
+                                            Navigator.pushReplacement(
+                                                context,
+                                                MaterialPageRoute(
+                                                    builder: (c) =>
+                                                        Authenticate(
+                                                          currentDate: widget
+                                                              .currentDate,
+                                                        )));
+                                          },
+                                          child: Text("Yes"))
+                                    ],
+                                  );
+                                },
                               );
                             },
                           )
                         ],
                       );
-                    }
-                    else{
+                    } else {
                       return CircularProgressIndicator();
                     }
                   }),
@@ -176,7 +196,7 @@ class _PaymentGatewayState extends State<PaymentGateway> {
 
   void openCheckout(int price) async {
     var options = {
-      'key': 'rzp_live_x7Skcm7iiF3UJf',
+      'key': 'rzp_live_8xjvEaCGrxdB3t',
       'amount': price,
       'name': 'PICTIRA',
       'description': 'Monthly Subscription',
@@ -200,7 +220,7 @@ class _PaymentGatewayState extends State<PaymentGateway> {
         .doc(_auth.currentUser!.uid)
         .update({'rechargeDate': ts, 'paymentID': response.paymentId});
     Fluttertoast.showToast(
-        msg: "Payment Successful! Thank You " + "Shaunak Test",
+        msg: "Payment Successful! Thank You " + "Shaunak here",
         // msg: "Payment Successful! Thank You " + response.paymentId,
         toastLength: Toast.LENGTH_SHORT);
     Navigator.pushReplacement(
@@ -215,7 +235,7 @@ class _PaymentGatewayState extends State<PaymentGateway> {
     //Have a look
     // var message,walletName;
     // Object responseHere=response ?? {message:"hi",walletName:"Yo"};
-    
+
     Fluttertoast.showToast(
         msg: "ERROR: " + response.code.toString() + " - Message",
         toastLength: Toast.LENGTH_SHORT);
@@ -226,13 +246,11 @@ class _PaymentGatewayState extends State<PaymentGateway> {
   }
 
   void _handleExternalWallet(ExternalWalletResponse response) {
-
     // Fluttertoast.showToast(
     //     msg: "EXTERNAL_WALLET: " + response.walletName,
     //     toastLength: Toast.LENGTH_SHORT);
 
     Fluttertoast.showToast(
-        msg: "EXTERNAL_WALLET: Wallet Name",
-        toastLength: Toast.LENGTH_SHORT);
+        msg: "EXTERNAL_WALLET: Wallet Name", toastLength: Toast.LENGTH_SHORT);
   }
 }

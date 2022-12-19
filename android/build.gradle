@@ -13,6 +13,12 @@ buildscript {
 }
 
 allprojects {
+    // TODO uncheck if dont want detailed warnings
+    gradle.projectsEvaluated {
+        tasks.withType(JavaCompile) {
+            options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
+        }
+    }
     repositories {
         google()
         mavenCentral()
