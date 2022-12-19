@@ -71,11 +71,21 @@ class _AuthenticateState extends State<Authenticate> {
                     height: height * 0.05,
                   ),
                   Center(
-                    child: CircleAvatar(
-                      backgroundImage: AssetImage('images/pictira.png'),
-                      radius: height * 0.11,
-                      backgroundColor: Colors.black12,
+                    child: Card(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(15))),
+                      child: Image.asset(
+                        'images/pictira.png',
+                        height: height * 0.11,
+                        width: height * 0.11,
+                        fit: BoxFit.fitWidth,
+                      ),
                     ),
+                    // CircleAvatar(
+                    //   backgroundImage: AssetImage('images/pictira.png'),
+                    //   radius: height * 0.11,
+                    //   backgroundColor: Colors.black12,
+                    // ),
                   ),
                   Center(
                     child: Text(
@@ -292,10 +302,15 @@ class _AuthenticateState extends State<Authenticate> {
                     height: height * 0.05,
                   ),
                   Center(
-                    child: CircleAvatar(
-                      backgroundImage: AssetImage('images/pictira.png'),
-                      radius: height * 0.11,
-                      backgroundColor: Colors.black12,
+                    child: Card(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(15))),
+                      child: Image.asset(
+                        'images/pictira.png',
+                        height: height * 0.11,
+                        width: height * 0.11,
+                        fit: BoxFit.fitWidth,
+                      ),
                     ),
                   ),
                   Center(

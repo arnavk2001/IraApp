@@ -8,6 +8,7 @@ import 'package:pictira/Authentication/VerifyEmail.dart';
 import 'package:pictira/Authentication/VerifySubscription.dart';
 import 'package:pictira/Home_screen.dart';
 import './Study Material/screen/Material_reading.dart';
+import 'DocumentViewer/DocumentViewer_Screen.dart';
 import 'Notices/screen/Notices.dart';
 import 'Notices/screen/NoticesTabs.dart';
 import 'package:pictira/SidePanel.dart';
@@ -17,6 +18,7 @@ import 'Syllabus nd tt/screen/TT_branch_screen.dart';
 import 'Syllabus nd tt/screen/SyllabusNTt.dart';
 import './Study Material/screen/BranchTabs_screen.dart';
 import './Study Material/screen/FirstYear_screen.dart';
+import 'DocumentViewer/documentViewer.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -89,14 +91,22 @@ class PICTIRA extends StatelessWidget {
         HomeScreen.routeName: (context) => HomeScreen(
               currentDate: currentDate,
             ),
+
         OtherInfoScreen.routeName: (context) =>
             OtherInfoScreen(currentDate: DateTime(2001, 6, 15, 17, 30)),
+
         SyllabusBranchScreen.routeName: (context) => SyllabusBranchScreen(),
+
         TtBranchScreen.routeName: (context) => TtBranchScreen(),
+
         Notices.routeName: (context) =>
             Notices(currentDate: DateTime(2001, 6, 15, 17, 30)),
+
+        viewDocument.routeName: (context) => viewDocument(url: "Test"),
+
         NoticesTabs.routeName: (context) => NoticesTabs(),
         //ResetPasswordScreen.routeName: (context) => ResetPasswordScreen(),
+
         MaterialReading.routeName: (context) => MaterialReading(
             currentDate: DateTime(2001, 6, 15, 17, 30),
             path: "yopath",

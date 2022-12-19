@@ -1,13 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:pdftron_flutter/pdftron_flutter.dart';
+// import 'package:pdftron_flutter/pdftron_flutter.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class NoticesList extends StatefulWidget {
-
-
   String path, typeOfContent;
-  NoticesList({required this.path,required this.typeOfContent});
+  NoticesList({required this.path, required this.typeOfContent});
   @override
   _NoticesListState createState() => _NoticesListState();
 }
@@ -15,10 +13,9 @@ class NoticesList extends StatefulWidget {
 class _NoticesListState extends State<NoticesList> {
   @override
   Widget build(BuildContext context) {
-
-    var height=MediaQuery.of(context).size.height;
-    var width=MediaQuery.of(context).size.width;
-    final controller=PageController();
+    var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
+    final controller = PageController();
 
     return StreamBuilder(
         stream: FirebaseFirestore.instance
@@ -42,12 +39,12 @@ class _NoticesListState extends State<NoticesList> {
                 child: ListView(
                   children: [
                     Container(
-                      height: height*0.72,
+                      height: height * 0.72,
                       child: PageView.builder(
                         controller: controller,
                         itemCount: d.length,
-                        itemBuilder: (BuildContext ctx,int index){
-                          m=d[index];
+                        itemBuilder: (BuildContext ctx, int index) {
+                          m = d[index];
                           // print(m['dateTime'].runtimeType);
                           // print(m['dateTime']);
                           // Timestamp t=m['dateTime'];
@@ -80,7 +77,9 @@ class _NoticesListState extends State<NoticesList> {
                                   Row(
                                     children: [
                                       SizedBox(
-                                        width: MediaQuery.of(context).size.width * 0.70,
+                                        width:
+                                            MediaQuery.of(context).size.width *
+                                                0.70,
                                       ),
                                       Text(m['date']),
                                     ],
@@ -98,22 +97,23 @@ class _NoticesListState extends State<NoticesList> {
                                   m['isImg']
                                       ? Image.network(m['imgUrl'])
                                       : SizedBox(
-                                    height: 1,
-                                  ),
+                                          height: 1,
+                                        ),
                                   SizedBox(
                                     height: 5,
                                   ),
                                   m['isPdf']
                                       ? ListTile(
-                                    tileColor: Colors.blueGrey,
-                                    title: Text(m['title'] + '.pdf'),
-                                    onTap: () {
-                                      PdftronFlutter.openDocument(m['pdfUrl']);
-                                    },
-                                  )
+                                          tileColor: Colors.blueGrey,
+                                          title: Text(m['title'] + '.pdf'),
+                                          onTap: () {
+                                            // TODO check here
+                                            // PdftronFlutter.openDocument(m['pdfUrl']);
+                                          },
+                                        )
                                       : SizedBox(
-                                    height: 2,
-                                  ),
+                                          height: 2,
+                                        ),
                                 ],
                               ),
                             ),
@@ -121,13 +121,16 @@ class _NoticesListState extends State<NoticesList> {
                         },
                       ),
                     ),
-                    SizedBox(height: height*0.02,),
+                    SizedBox(
+                      height: height * 0.02,
+                    ),
                     Container(
                       child: Center(
                         child: SmoothPageIndicator(
                           controller: controller,
                           count: d.length,
-                          effect: ScrollingDotsEffect(dotHeight: height*0.007),
+                          effect:
+                              ScrollingDotsEffect(dotHeight: height * 0.007),
                         ),
                       ),
                     ),
@@ -146,4 +149,3 @@ class _NoticesListState extends State<NoticesList> {
         });
   }
 }
-

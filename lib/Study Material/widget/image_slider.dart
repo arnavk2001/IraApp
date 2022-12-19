@@ -50,10 +50,7 @@ class ImageSlider extends StatelessWidget {
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
                     image: DecorationImage(
-                      // image: AssetImage(
-                      //   'images/pictira_background_1.jpg',
-                      // ),
-                      image: a,
+                      image: AssetImage('images/idk_background_1.jpg'),
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -83,7 +80,7 @@ class ImageSlider extends StatelessWidget {
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
                     image: DecorationImage(
-                      image: AssetImage('images/pictira_background_2.jpg'),
+                      image: AssetImage('images/idk_background_2.jpg'),
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -94,7 +91,7 @@ class ImageSlider extends StatelessWidget {
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
                     image: DecorationImage(
-                      image: AssetImage('images/pictira_background_3.jpg'),
+                      image: AssetImage('images/idk_background_3.jpg'),
                       fit: BoxFit.cover,
                     ),
                   ),

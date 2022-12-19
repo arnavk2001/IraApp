@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:pictira/SidePanel.dart';
-import 'package:pictira/documentViewer.dart';
+import 'package:pictira/DocumentViewer/documentViewer.dart';
 
+import '../../DocumentViewer/DocumentViewer_Screen.dart';
 
 class ListViewBuilderScreen extends StatelessWidget {
   DateTime currentDate;
@@ -12,7 +13,12 @@ class ListViewBuilderScreen extends StatelessWidget {
   String url;
   String title;
 
-  ListViewBuilderScreen({required this.currentDate,required this.path,required this.teacherName,required this.url,required this.title});
+  ListViewBuilderScreen(
+      {required this.currentDate,
+      required this.path,
+      required this.teacherName,
+      required this.url,
+      required this.title});
   // Future<void> downloadPdf(url) async {
   //   if (await canLaunch(url)) {
   //     final bool nativeAppLaunchSucceeded = await launch(
@@ -32,8 +38,10 @@ class ListViewBuilderScreen extends StatelessWidget {
     // path = a['path'];
     // teacherName = a['subName'];
     return StreamBuilder<DocumentSnapshot>(
-      stream:
-          FirebaseFirestore.instance.collection(path).doc(teacherName).snapshots(),
+      stream: FirebaseFirestore.instance
+          .collection(path)
+          .doc(teacherName)
+          .snapshots(),
       builder: (ctx, snapshot) {
         if (!snapshot.hasData) {
           return Scaffold(
@@ -65,7 +73,17 @@ class ListViewBuilderScreen extends StatelessWidget {
                   itemCount: material.length,
                   itemBuilder: (BuildContext ctx, int index) {
                     return GestureDetector(
-                      onTap: (){viewDocument(material[index]['url'], context);},
+                      onTap: () {
+                        // TODO Check why context was required
+                        // viewDocument(url: material[index]['url'], context);
+                        // DocViewScrn(url: material[index]['url']);
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (ctx) => viewDocument(
+                                      url: material[index]['url'],
+                                    )));
+                      },
                       child: Card(
                         child: ListTile(
                           title: Text(material[index]['name']),

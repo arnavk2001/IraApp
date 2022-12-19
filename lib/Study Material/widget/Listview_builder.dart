@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:pictira/SidePanel.dart';
-import 'package:pictira/documentViewer.dart';
+import 'package:pictira/DocumentViewer/documentViewer.dart';
 
+import '../../DocumentViewer/DocumentViewer_Screen.dart';
 
 class ListViewBuilder extends StatelessWidget {
   DateTime currentDate;
@@ -10,7 +11,10 @@ class ListViewBuilder extends StatelessWidget {
   String path;
   String teacherName;
   late String url;
-  ListViewBuilder({required this.currentDate,required this.path, required this.teacherName});
+  ListViewBuilder(
+      {required this.currentDate,
+      required this.path,
+      required this.teacherName});
 
   @override
   Widget build(BuildContext context) {
@@ -18,8 +22,10 @@ class ListViewBuilder extends StatelessWidget {
     // path = a['path'];
     // teacherName = a['subName'];
     return StreamBuilder<DocumentSnapshot>(
-      stream:
-          FirebaseFirestore.instance.collection(path).doc(teacherName).snapshots(),
+      stream: FirebaseFirestore.instance
+          .collection(path)
+          .doc(teacherName)
+          .snapshots(),
       builder: (ctx, snapshot) {
         if (!snapshot.hasData) {
           return Scaffold(
@@ -46,13 +52,20 @@ class ListViewBuilder extends StatelessWidget {
                 itemBuilder: (BuildContext ctx, int index) {
                   return GestureDetector(
                     onTap: () {
-                      viewDocument(material[index]['url'], context);
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (ctx) => viewDocument(
+                                    url: material[index]['url'],
+                                  )));
+                      // TODO Check why context was required
+                      // viewDocument(url: material[index]['url'], context);
                     },
                     child: Card(
                       child: ListTile(
                         title: Text(material[index]['name']),
-                        ),
                       ),
+                    ),
                   );
                 });
           } catch (e) {

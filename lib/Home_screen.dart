@@ -1,4 +1,3 @@
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -9,7 +8,6 @@ import './Study Material/widget/image_slider.dart';
 import './SidePanel.dart';
 
 class HomeScreen extends StatefulWidget {
-
   DateTime currentDate;
   HomeScreen({required this.currentDate});
 
@@ -19,11 +17,8 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-
   @override
   Widget build(BuildContext context) {
-
-
     var screenSize = MediaQuery.of(context).size;
 
     try {
@@ -38,95 +33,152 @@ class _HomeScreenState extends State<HomeScreen> {
             title: Text("PICTIRA"),
             actions: <Widget>[
               IconButton(
-                  icon: Icon(Icons.person),
-                  // onPressed: () async{
-                  //   var auth=FirebaseAuth.instance;
-                  //   await auth.signOut();
-                  //   Navigator.pushReplacement(context, MaterialPageRoute(builder: (ctx)=>Authenticate()));
-                  // })
-                onPressed: (){
-                    showModalBottomSheet(context: context, builder: (BuildContext ctx){
-
-                      return StreamBuilder(
-                        stream: FirebaseFirestore.instance.collection('users').doc(FirebaseAuth.instance.currentUser!.uid).snapshots(),
-                        builder: (ctx,snapshots){
-                          if(!snapshots.hasData){
-                            return Center(child: CircularProgressIndicator(),);
-                          }
-                          else{
-                            try{
-                              dynamic m=snapshots.data;
-                              Timestamp ts=m['rechargeDate'];
-
-                              DateTime rechargeDate=ts.toDate();
-                              DateTime expiryDate=rechargeDate.add(Duration(days: 30));
-                              print(expiryDate);
-                              int daysLeft=expiryDate.difference(widget.currentDate).inDays.toInt();
-                              print(daysLeft);
-
-                              return Container(
-                                color: Color(0xfff2f3f7),
-                                height: screenSize.height*0.25,
-                                padding: EdgeInsets.all(screenSize.width*0.05),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Row(
-                                      children: [
-                                        //CircleAvatar(radius: screenSize.height*0.05,backgroundColor: Colors.white70,),
-                                        SizedBox(width: screenSize.width*0.05,),
-                                        Column(
-                                          crossAxisAlignment: CrossAxisAlignment.start,
-                                          children: [
-                                            Text(m['username'],style: TextStyle(fontSize: screenSize.height*0.042,color: Color(0xff2e91a0)),),
-                                            Text("${m['email']}",style: TextStyle(fontSize: screenSize.height*0.02,color: Color(0xff2e91a0)),),
-                                          ],
-                                        ),
-                                        Expanded(child: IconButton(
-                                          icon: Icon(Icons.logout,color: Color(0xff2e91a0),),
-                                          onPressed: (){
-                                            showDialog(context: context, builder: (ctx){
-                                              return AlertDialog(
-                                                content: Text("Are you sure you want to logout?"),
-                                                actions: [
-                                                  TextButton(onPressed: ()=>Navigator.pop(ctx), child: Text("No")),
-                                                  TextButton(onPressed: ()async{
-                                                    await FirebaseAuth.instance.signOut();
-
-                                                    Navigator.pop(ctx);
-                                                    // while(Navigator.canPop(context)){ // Navigator.canPop return true if can pop
-                                                    //   Navigator.pop(context);
-                                                    // }
-                                                    Navigator.popUntil(context, (Route<dynamic> route) => route.isFirst);
-                                                    //Navigator.pushReplacement(context, MaterialPageRoute(builder: (c)=>Authenticate(currentDate: widget.currentDate,)));
-                                                    },
-                                                      child: Text("Yes"))
-                                                ],
-                                              );
-                                            });
-                                          },
-                                        )),
-                                      ],
-                                    ),
-                                    Divider(color: Colors.indigo,),
-                                    SizedBox(
-                                      height: screenSize.height*0.05,
-                                    ),
-                                    // SizedBox(
-                                    //   height: screenSize.height*0.05,
-                                    // ),
-                                    Center(child: Text("Subscription will end in  $daysLeft days",style: TextStyle(color: Color(0xff2e91a0)),)),
-                                  ],
-                                ),
+                icon: Icon(Icons.person),
+                // onPressed: () async{
+                //   var auth=FirebaseAuth.instance;
+                //   await auth.signOut();
+                //   Navigator.pushReplacement(context, MaterialPageRoute(builder: (ctx)=>Authenticate()));
+                // })
+                onPressed: () {
+                  showModalBottomSheet(
+                      context: context,
+                      builder: (BuildContext ctx) {
+                        return StreamBuilder(
+                          stream: FirebaseFirestore.instance
+                              .collection('users')
+                              .doc(FirebaseAuth.instance.currentUser!.uid)
+                              .snapshots(),
+                          builder: (ctx, snapshots) {
+                            if (!snapshots.hasData) {
+                              return Center(
+                                child: CircularProgressIndicator(),
                               );
+                            } else {
+                              try {
+                                dynamic m = snapshots.data;
+                                Timestamp ts = m['rechargeDate'];
+
+                                DateTime rechargeDate = ts.toDate();
+                                DateTime expiryDate =
+                                    rechargeDate.add(Duration(days: 30));
+                                print(expiryDate);
+                                int daysLeft = expiryDate
+                                    .difference(widget.currentDate)
+                                    .inDays
+                                    .toInt();
+                                print(daysLeft);
+
+                                return Container(
+                                  color: Color(0xfff2f3f7),
+                                  height: screenSize.height * 0.25,
+                                  padding:
+                                      EdgeInsets.all(screenSize.width * 0.05),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Row(
+                                        children: [
+                                          //CircleAvatar(radius: screenSize.height*0.05,backgroundColor: Colors.white70,),
+                                          SizedBox(
+                                            width: screenSize.width * 0.05,
+                                          ),
+                                          Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Text(
+                                                m['username'],
+                                                style: TextStyle(
+                                                    fontSize:
+                                                        screenSize.height *
+                                                            0.042,
+                                                    color: Color(0xff2e91a0)),
+                                              ),
+                                              Text(
+                                                "${m['email']}",
+                                                style: TextStyle(
+                                                    fontSize:
+                                                        screenSize.height *
+                                                            0.02,
+                                                    color: Color(0xff2e91a0)),
+                                              ),
+                                            ],
+                                          ),
+                                          Expanded(
+                                              child: IconButton(
+                                            icon: Icon(
+                                              Icons.logout,
+                                              color: Color(0xff2e91a0),
+                                            ),
+                                            onPressed: () {
+                                              showDialog(
+                                                  context: context,
+                                                  builder: (ctx) {
+                                                    return AlertDialog(
+                                                      content: Text(
+                                                          "Are you sure you want to logout?"),
+                                                      actions: [
+                                                        TextButton(
+                                                            onPressed: () =>
+                                                                Navigator.pop(
+                                                                    ctx),
+                                                            child: Text("No")),
+                                                        TextButton(
+                                                            onPressed:
+                                                                () async {
+                                                              await FirebaseAuth
+                                                                  .instance
+                                                                  .signOut();
+
+                                                              Navigator.pop(
+                                                                  ctx);
+                                                              // while(Navigator.canPop(context)){ // Navigator.canPop return true if can pop
+                                                              //   Navigator.pop(context);
+                                                              // }
+                                                              Navigator.popUntil(
+                                                                  context,
+                                                                  (Route<dynamic>
+                                                                          route) =>
+                                                                      route
+                                                                          .isFirst);
+                                                              //Navigator.pushReplacement(context, MaterialPageRoute(builder: (c)=>Authenticate(currentDate: widget.currentDate,)));
+                                                            },
+                                                            child: Text("Yes"))
+                                                      ],
+                                                    );
+                                                  });
+                                            },
+                                          )),
+                                        ],
+                                      ),
+                                      Divider(
+                                        color: Colors.indigo,
+                                      ),
+                                      SizedBox(
+                                        height: screenSize.height * 0.05,
+                                      ),
+                                      // SizedBox(
+                                      //   height: screenSize.height*0.05,
+                                      // ),
+                                      Center(
+                                          child: Text(
+                                        "Subscription will end in  $daysLeft days",
+                                        style:
+                                            TextStyle(color: Color(0xff2e91a0)),
+                                      )),
+                                    ],
+                                  ),
+                                );
+                              } catch (e) {
+                                return Center(
+                                  child: CircularProgressIndicator(),
+                                );
+                              }
                             }
-                            catch(e){
-                              return Center(child: CircularProgressIndicator(),);
-                            }
-                          }
-                        },
-                      );
-                    });
+                          },
+                        );
+                      });
                 },
               )
             ],
@@ -145,13 +197,16 @@ class _HomeScreenState extends State<HomeScreen> {
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       // color: Colors.white,
-                      color:Color(0xff2e91a0),
+                      color: Color(0xff2e91a0),
                       fontWeight: FontWeight.bold,
                       fontSize: 30,
                     ),
                   ),
                 ),
               ),
+
+              // First Year Button
+
               SafeArea(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -165,7 +220,11 @@ class _HomeScreenState extends State<HomeScreen> {
                           // color: Colors.orange,
                           onPressed: () {
                             Navigator.push(
-                                context, MaterialPageRoute(builder: (ctx)=>FirstYear(currentDate: widget.currentDate,)));
+                                context,
+                                MaterialPageRoute(
+                                    builder: (ctx) => FirstYear(
+                                          currentDate: widget.currentDate,
+                                        )));
                           },
                           child: Text(
                             'First Year',
@@ -177,6 +236,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     SizedBox(
                       width: 50,
                     ),
+
+                    // Second Year Button
+
                     Card(
                       elevation: 10,
                       child: Container(
@@ -189,7 +251,14 @@ class _HomeScreenState extends State<HomeScreen> {
                             //     BranchTabs.routeName,
                             //     arguments: {'yearS': "Second", 'yearN': "2"});
 
-                            Navigator.push(context, MaterialPageRoute(builder: (ctx)=>BranchTabs(currentDate: widget.currentDate,yearS: 'Second',yearN: '2',)));
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (ctx) => BranchTabs(
+                                          currentDate: widget.currentDate,
+                                          yearS: 'Second',
+                                          yearN: '2',
+                                        )));
                           },
                           child: Text(
                             'Second Year',
@@ -218,7 +287,14 @@ class _HomeScreenState extends State<HomeScreen> {
                           onPressed: () {
                             // Navigator.pushNamed(context, BranchTabs.routeName,
                             //     arguments: {'yearS': "Third", 'yearN': "3"});
-                            Navigator.push(context, MaterialPageRoute(builder: (ctx)=>BranchTabs(currentDate: widget.currentDate,yearS: 'Third',yearN: '3',)));
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (ctx) => BranchTabs(
+                                          currentDate: widget.currentDate,
+                                          yearS: 'Third',
+                                          yearN: '3',
+                                        )));
                           },
                           child: Text(
                             'Third Year',
@@ -241,7 +317,14 @@ class _HomeScreenState extends State<HomeScreen> {
                             // Navigator.pushNamed(context, BranchTabs.routeName,
                             //     arguments: {'yearS': "Fourth", 'yearN': "4"});
 
-                            Navigator.push(context, MaterialPageRoute(builder: (ctx)=>BranchTabs(currentDate: widget.currentDate,yearS: 'Fourth',yearN: '4',)));
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (ctx) => BranchTabs(
+                                          currentDate: widget.currentDate,
+                                          yearS: 'Fourth',
+                                          yearN: '4',
+                                        )));
                           },
                           child: Text(
                             'Fourth Year',
@@ -255,7 +338,9 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ],
           ),
-          drawer: SidePanel(currentDate: widget.currentDate,),
+          drawer: SidePanel(
+            currentDate: widget.currentDate,
+          ),
         ),
       );
     } catch (e) {

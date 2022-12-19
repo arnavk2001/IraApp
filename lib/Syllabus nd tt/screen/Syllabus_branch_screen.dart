@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:pictira/documentViewer.dart';
+import 'package:pictira/DocumentViewer/DocumentViewer_Screen.dart';
+import 'package:pictira/DocumentViewer/documentViewer.dart';
 
 class SyllabusBranchScreen extends StatelessWidget {
   static final routeName = '/SyllabusBranchScreen';
@@ -36,7 +37,14 @@ class SyllabusBranchScreen extends StatelessWidget {
                   itemBuilder: (BuildContext ctx, int index) {
                     return GestureDetector(
                       onTap: () {
-                        viewDocument(branch[index]['url'], context);
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (ctx) => viewDocument(
+                                      url: branch[index]['url'],
+                                    )));
+                        // TODO Check why context was required
+                        // viewDocument(url: branch[index]['url'], context);
                       },
                       child: Card(
                         child: ListTile(

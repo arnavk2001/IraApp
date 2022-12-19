@@ -45,7 +45,6 @@ class _NoticesState extends State<Notices> {
                       return Padding(
                         padding: const EdgeInsets.all(30.0),
                         child: ElevatedButton(
-                        
                             // shape: RoundedRectangleBorder(
                             //     borderRadius: BorderRadius.circular(15)),
                             onPressed: () {
@@ -66,7 +65,9 @@ class _NoticesState extends State<Notices> {
               }
             }
           }),
-      drawer: SidePanel(currentDate: widget.currentDate,),
+      drawer: SidePanel(
+        currentDate: widget.currentDate,
+      ),
     );
   }
 }
