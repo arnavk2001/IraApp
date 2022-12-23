@@ -47,7 +47,9 @@ class _SubjectCardState extends State<SubjectCard> {
             //     arguments: {'path': widget.path, 'subName': widget.name});
             // Navigator.of(context).pushNamed(MaterialReading.routeName,
             //     arguments: {'path': widget.path, 'subName': widget.name});
-            Navigator.pushReplacement(
+            // Navigator.pushReplacement(
+            //  ! Check kar ki back challra hai kya
+            Navigator.push(
                 context,
                 MaterialPageRoute(
                     builder: (ctx) => MaterialReading(

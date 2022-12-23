@@ -11,7 +11,12 @@ class DocumentReader extends StatelessWidget {
   String branch;
   String title;
   late String path;
-  DocumentReader({required this.currentDate,required this.name, required this.branch, required this.sem,required this.title});
+  DocumentReader(
+      {required this.currentDate,
+      required this.name,
+      required this.branch,
+      required this.sem,
+      required this.title});
 
   @override
   Widget build(BuildContext context) {
@@ -37,24 +42,31 @@ class DocumentReader extends StatelessWidget {
             if (path.contains(branch + '/' + branch)) {
               // Navigator.of(context).pushNamed(ListViewBuilderScreen.routeName,
               //     arguments: {'path': path, 'subName': name});
-              Navigator.push(context, MaterialPageRoute(builder:(ctx)=>ListViewBuilderScreen(
-                //Have a look
-                url: "hi",
-                currentDate: currentDate,
-                path: path,
-                teacherName: name,
-                title: title+" "+name,
-              )));
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (ctx) => ListViewBuilderScreen(
+                            //Have a look
+                            url: "hi",
+                            currentDate: currentDate,
+                            path: path,
+                            teacherName: name,
+                            title: title + " " + name,
+                          )));
             } else
               // Navigator.of(context).pushNamed(MaterialReading.routeName,
               //     arguments: {'path': path, 'subName': name});
-            Navigator.pushReplacement(context, MaterialPageRoute(builder: (ctx)=>MaterialReading(
-              currentDate: currentDate,
-              path: path,
-              subName: name,
-              title: title+" "+name,
-            )
-            ));
+              // Navigator.pushReplacement(context, MaterialPageRoute(builder: (ctx)=>MaterialReading(
+              // ! Check kar ki back challra hai kya
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (ctx) => MaterialReading(
+                            currentDate: currentDate,
+                            path: path,
+                            subName: name,
+                            title: title + " " + name,
+                          )));
           },
         ),
       ),
