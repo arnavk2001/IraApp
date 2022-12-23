@@ -7,9 +7,13 @@ import '../widget/Listview_builder.dart';
 
 class MaterialReading extends StatelessWidget {
   DateTime currentDate;
-  String path,subName;
+  String path, subName;
   String title;
-  MaterialReading({required this.currentDate,required this.path,required this.subName,required this.title});
+  MaterialReading(
+      {required this.currentDate,
+      required this.path,
+      required this.subName,
+      required this.title});
   static const routeName = '/MaterialReading';
 
   @override
@@ -44,7 +48,6 @@ class MaterialReading extends StatelessWidget {
           );
         } else if (snapshot.data!['Material'] == null) {
           return Scaffold(
-
             //drawer: SidePanel(currentDate: currentDate,),
             appBar: AppBar(
               title: Text(title),
@@ -59,6 +62,7 @@ class MaterialReading extends StatelessWidget {
             List subjects = snapshot.data!['Material'];
             if (subjects[0].runtimeType.toString() == 'String') {
               return Scaffold(
+                backgroundColor: Color.fromARGB(255, 239, 252, 251),
                 appBar: AppBar(
                   title: Text(title),
                   backgroundColor: Colors.indigo,
@@ -87,6 +91,7 @@ class MaterialReading extends StatelessWidget {
                   title: Text(title),
                   backgroundColor: Colors.indigo,
                 ),
+                backgroundColor: Color.fromARGB(255, 239, 252, 251),
                 //drawer: SidePanel(currentDate: currentDate,),
                 body: ListViewBuilder(
                   currentDate: currentDate,

@@ -11,7 +11,7 @@ class FirstYear extends StatelessWidget {
     return DefaultTabController(
       length: 3,
       child: Scaffold(
-        // backgroundColor: Colors.blueGrey,
+        backgroundColor: Color.fromARGB(255, 239, 252, 251),
         appBar: AppBar(
           backgroundColor: Colors.indigo,
           title: Text("First Year"),
@@ -29,20 +29,22 @@ class FirstYear extends StatelessWidget {
             ],
           ),
         ),
-        drawer: SidePanel(currentDate: currentDate,),
+        drawer: SidePanel(
+          currentDate: currentDate,
+        ),
         body: TabBarView(children: [
           SubjectsList(
-            currentDate: DateTime(2001,6,15,17,13),
+            currentDate: DateTime(2001, 6, 15, 17, 13),
             branch: 'Physics',
             sem: 'FE',
           ),
           SubjectsList(
-            currentDate: DateTime(2001,6,15,17,13),
+            currentDate: DateTime(2001, 6, 15, 17, 13),
             branch: 'Common',
             sem: 'FE',
           ),
           SubjectsList(
-            currentDate: DateTime(2001,6,15,17,13),
+            currentDate: DateTime(2001, 6, 15, 17, 13),
             branch: 'Chemistry',
             sem: 'FE',
           ),

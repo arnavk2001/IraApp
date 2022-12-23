@@ -23,10 +23,10 @@ class _HomeScreenState extends State<HomeScreen> {
 
     try {
       return Container(
-        //color: Colors.grey[800],
+        color: Color.fromARGB(255, 239, 252, 251),
         child: Scaffold(
-          // backgroundColor: Colors.transparent,
-          backgroundColor: Color(0xfff2f3f7),
+          backgroundColor: Colors.transparent,
+          // backgroundColor: Color(0xfff2f3f7),
           appBar: AppBar(
             centerTitle: true,
             backgroundColor: Colors.indigo,
@@ -189,6 +189,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 padding: const EdgeInsets.only(top: 20),
                 child: ImageSlider(),
               ),
+              SizedBox(
+                height: screenSize.height * 0.05,
+              ),
               Padding(
                 padding: const EdgeInsets.only(bottom: 20),
                 child: Container(
@@ -203,6 +206,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                 ),
+              ),
+              SizedBox(
+                height: screenSize.height * 0.04,
               ),
 
               // First Year Button

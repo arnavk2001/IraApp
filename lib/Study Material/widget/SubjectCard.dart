@@ -10,7 +10,11 @@ class SubjectCard extends StatefulWidget {
   String name;
   String sem;
   String branch;
-  SubjectCard({required this.currentDate,required this.name, required this.branch, required this.sem});
+  SubjectCard(
+      {required this.currentDate,
+      required this.name,
+      required this.branch,
+      required this.sem});
   late String path;
 
   @override
@@ -23,7 +27,7 @@ class _SubjectCardState extends State<SubjectCard> {
     widget.path = "/" + widget.sem + "/" + widget.branch + "/" + widget.name;
     return Card(
       elevation: 10,
-      // color: Colors.blueGrey[700],
+      // color: Color.fromARGB(255, 239, 252, 251),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10),
       ),
@@ -43,12 +47,15 @@ class _SubjectCardState extends State<SubjectCard> {
             //     arguments: {'path': widget.path, 'subName': widget.name});
             // Navigator.of(context).pushNamed(MaterialReading.routeName,
             //     arguments: {'path': widget.path, 'subName': widget.name});
-            Navigator.pushReplacement(context, MaterialPageRoute(builder: (ctx)=>MaterialReading(
-              currentDate: widget.currentDate,
-              path: widget.path,
-              subName: widget.name,
-              title: widget.name,
-            )));
+            Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                    builder: (ctx) => MaterialReading(
+                          currentDate: widget.currentDate,
+                          path: widget.path,
+                          subName: widget.name,
+                          title: widget.name,
+                        )));
           },
         ),
       ),

@@ -30,10 +30,13 @@ class _BranchTabsState extends State<BranchTabs> {
     return DefaultTabController(
       length: 3,
       child: Scaffold(
-        backgroundColor: Colors.grey[1000],
+        backgroundColor: Color.fromARGB(255, 239, 252, 251),
         appBar: AppBar(
           backgroundColor: Colors.indigo,
-          title: Text("${widget.yearS} Year"),
+          // title: Text("${widget.yearS} Year"),
+          title: Text(isSem1
+              ? "${widget.yearS} Year \n(Sem 2)"
+              : "${widget.yearS} Year \n(Sem 1)"),
           bottom: TabBar(tabs: [
             Tab(
               text: "CSE",
@@ -46,16 +49,21 @@ class _BranchTabsState extends State<BranchTabs> {
             ),
           ]),
           actions: [
-            ElevatedButton(
-              // shape: new RoundedRectangleBorder(
-              //   borderRadius: new BorderRadius.circular(30.0),
-              // ),
-              onPressed: toggleSem,
-              child: Text(
-                isSem1 ? "SEM 2" : "SEM 1",
-                style: TextStyle(color: Colors.white),
+            Container(
+              padding: const EdgeInsets.all(10.0),
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  // shape: const CircleBorder(),
+                  primary: Color.fromARGB(255, 243, 86, 86),
+                ),
+                onPressed: toggleSem,
+                child: Text(
+                  // isSem1 ? "SEM 2" : "SEM 1",
+                  "Switch Sem",
+                  style: TextStyle(color: Color.fromARGB(255, 255, 255, 255)),
+                ),
+                // color: Colors.indigoAccent,
               ),
-              // color: Colors.indigoAccent,
             ),
           ],
         ),
