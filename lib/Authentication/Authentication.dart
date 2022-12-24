@@ -476,6 +476,7 @@ class _AuthenticateState extends State<Authenticate> {
     var width = MediaQuery.of(context).size.width;
 
     return Scaffold(
+      backgroundColor: Color.fromARGB(255, 239, 252, 251),
       appBar: AppBar(
         title: Text(
           "PICTIRA",

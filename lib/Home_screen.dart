@@ -23,7 +23,13 @@ class _HomeScreenState extends State<HomeScreen> {
 
     try {
       return Container(
-        color: Color.fromARGB(255, 239, 252, 251),
+        // color: Color.fromARGB(255, 239, 252, 251),
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('images/rm347-porpla-02-a-01.jpg'),
+            fit: BoxFit.fitHeight,
+          ),
+        ),
         child: Scaffold(
           backgroundColor: Colors.transparent,
           // backgroundColor: Color(0xfff2f3f7),
@@ -193,16 +199,17 @@ class _HomeScreenState extends State<HomeScreen> {
                 height: screenSize.height * 0.05,
               ),
               Padding(
-                padding: const EdgeInsets.only(bottom: 20),
+                padding: const EdgeInsets.only(bottom: 20, left: 20, right: 20),
                 child: Container(
+                  // color: Color.fromARGB(255, 90, 146, 161),
                   child: Text(
                     'Happy Mugging!',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       // color: Colors.white,
-                      color: Color(0xff2e91a0),
+                      color: Colors.black,
                       fontWeight: FontWeight.bold,
-                      fontSize: 30,
+                      fontSize: 40,
                     ),
                   ),
                 ),
