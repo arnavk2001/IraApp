@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:pictira/SidePanel.dart';
 import 'package:pictira/DocumentViewer/documentViewer.dart';
-
+import 'package:google_fonts/google_fonts.dart';
 import '../../DocumentViewer/DocumentViewer_Screen.dart';
 
 class ListViewBuilderScreen extends StatelessWidget {
@@ -85,15 +85,34 @@ class ListViewBuilderScreen extends StatelessWidget {
                                     )));
                       },
                       child: Card(
-                        child: ListTile(
-                          title: Text(material[index]['name']),
-                          // trailing: TextButton(
-                          //   child: Icon(Icons.download_rounded),
-                          //   onPressed: () async {
-                          //     //await downloadPdf(material[index]['url']);
-                          //   },
-                          // ),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15.0),
                         ),
+                        child: ListTile(
+                            tileColor: Color.fromARGB(255, 0, 115, 147),
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10.0)),
+                            title: Text(
+                              material[index]['name'],
+                              // textAlign: TextAlign.center,
+                              style: GoogleFonts.lato(
+                                textStyle:
+                                    Theme.of(context).textTheme.headline4,
+                                color: Color.fromARGB(255, 196, 223, 21),
+                                // color: Colors.blueAccent,
+                                fontSize: 17,
+                                fontWeight: FontWeight.w700,
+                                fontStyle: FontStyle.italic,
+                              ),
+                            )
+                            // Text(material[index]['name']),
+                            // trailing: TextButton(
+                            //   child: Icon(Icons.download_rounded),
+                            //   onPressed: () async {
+                            //     //await downloadPdf(material[index]['url']);
+                            //   },
+                            // ),
+                            ),
                       ),
                     );
                   },

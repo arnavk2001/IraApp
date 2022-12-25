@@ -1,5 +1,5 @@
 import 'dart:math';
-
+import 'package:random_color/random_color.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/rendering.dart';
@@ -7,8 +7,9 @@ import '../screen/TT_branch_screen.dart';
 import '../screen/Syllabus_branch_screen.dart';
 
 class Syllabus_TT_List extends StatelessWidget {
+  RandomColor _randomColor = RandomColor();
   String ttOrSyllabus;
-  Syllabus_TT_List( this.ttOrSyllabus);
+  Syllabus_TT_List(this.ttOrSyllabus);
   @override
   Widget build(BuildContext context) {
     return StreamBuilder(
@@ -29,8 +30,12 @@ class Syllabus_TT_List extends StatelessWidget {
               itemBuilder: (BuildContext ctx, int index) {
                 return Card(
                   elevation: 10,
-                  color: Colors
-                      .primaries[Random().nextInt(Colors.primaries.length)],
+                  color: _randomColor.randomColor(
+                    colorHue: ColorHue.multiple(
+                        colorHues: [ColorHue.green, ColorHue.red]),
+                    colorBrightness: ColorBrightness.light,
+                    colorSaturation: ColorSaturation.highSaturation,
+                  ),
                   child: Center(
                     child: ListTile(
                       title: Text(

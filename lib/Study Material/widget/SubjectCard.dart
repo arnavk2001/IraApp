@@ -1,8 +1,9 @@
 import 'dart:math';
-
+import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../screen/Material_reading.dart';
+import 'package:random_color/random_color.dart';
 
 class SubjectCard extends StatefulWidget {
   DateTime currentDate;
@@ -22,6 +23,7 @@ class SubjectCard extends StatefulWidget {
 }
 
 class _SubjectCardState extends State<SubjectCard> {
+  RandomColor _randomColor = RandomColor();
   @override
   Widget build(BuildContext context) {
     widget.path = "/" + widget.sem + "/" + widget.branch + "/" + widget.name;
@@ -29,17 +31,32 @@ class _SubjectCardState extends State<SubjectCard> {
       elevation: 10,
       // color: Color.fromARGB(255, 239, 252, 251),
       shape: RoundedRectangleBorder(
+        // side: BorderSide(
+        //   color: Colors.black,
+        // ),
         borderRadius: BorderRadius.circular(10),
       ),
-      color: Colors.primaries[Random().nextInt(Colors.primaries.length)],
+      // color: Colors.primaries[Random().nextInt(Colors.primaries.length)],
+      color: _randomColor.randomColor(
+        colorHue: ColorHue.multiple(colorHues: [ColorHue.green, ColorHue.red]),
+        colorBrightness: ColorBrightness.light,
+        colorSaturation: ColorSaturation.highSaturation,
+      ),
       child: Center(
         child: ListTile(
           title: Text(
             widget.name,
-            style: TextStyle(
-              fontWeight: FontWeight.w400,
-              fontSize: 30,
+            style: GoogleFonts.lato(
+              textStyle: Theme.of(context).textTheme.headline4,
+              color: Colors.black87,
+              fontSize: 25,
+              fontWeight: FontWeight.w700,
+              fontStyle: FontStyle.italic,
             ),
+            //  TextStyle(
+            //   fontWeight: FontWeight.w400,
+            //   fontSize: 30,
+            // ),
             textAlign: TextAlign.center,
           ),
           onTap: () {

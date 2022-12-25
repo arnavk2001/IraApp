@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:pictira/Study%20Material/screen/ListView_builder_screen.dart';
 import '../screen/Material_reading.dart';
+import 'package:random_color/random_color.dart';
 
 class DocumentReader extends StatelessWidget {
+  RandomColor _randomColor = RandomColor();
   DateTime currentDate;
   var name;
   String sem;
@@ -23,7 +25,11 @@ class DocumentReader extends StatelessWidget {
     path = sem + "/" + branch + "/" + name;
 
     return Card(
-      color: Colors.primaries[Random().nextInt(Colors.primaries.length)],
+      color: _randomColor.randomColor(
+        colorHue: ColorHue.multiple(colorHues: [ColorHue.green, ColorHue.red]),
+        colorBrightness: ColorBrightness.light,
+        colorSaturation: ColorSaturation.highSaturation,
+      ),
       elevation: 10,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10),

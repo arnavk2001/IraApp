@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pictira/SidePanel.dart';
 import '../widget/SubjectList.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class BranchTabs extends StatefulWidget {
   String yearS, yearN;
@@ -37,17 +38,35 @@ class _BranchTabsState extends State<BranchTabs> {
           title: Text(isSem1
               ? "${widget.yearS} Year \n(Sem 2)"
               : "${widget.yearS} Year \n(Sem 1)"),
-          bottom: TabBar(tabs: [
-            Tab(
-              text: "CSE",
-            ),
-            Tab(
-              text: "IT",
-            ),
-            Tab(
-              text: "EnTC",
-            ),
-          ]),
+
+          bottom: TabBar(
+              labelStyle: GoogleFonts.lato(
+                textStyle: Theme.of(context).textTheme.headline4,
+                color: Color.fromARGB(255, 36, 39, 19),
+                // color: Colors.blueAccent,
+                fontSize: 28,
+                fontWeight: FontWeight.w700,
+                fontStyle: FontStyle.italic,
+              ),
+              unselectedLabelStyle: GoogleFonts.lato(
+                textStyle: Theme.of(context).textTheme.headline4,
+                color: Color.fromARGB(255, 36, 39, 19),
+                // color: Colors.blueAccent,
+                fontSize: 13,
+                fontWeight: FontWeight.w700,
+                fontStyle: FontStyle.italic,
+              ),
+              tabs: [
+                Tab(
+                  text: "CSE",
+                ),
+                Tab(
+                  text: "IT",
+                ),
+                Tab(
+                  text: "EnTC",
+                ),
+              ]),
           actions: [
             Container(
               padding: const EdgeInsets.all(10.0),

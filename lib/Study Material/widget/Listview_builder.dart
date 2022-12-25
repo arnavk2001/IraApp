@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:pictira/SidePanel.dart';
 import 'package:pictira/DocumentViewer/documentViewer.dart';
-
+import 'package:google_fonts/google_fonts.dart';
 import '../../DocumentViewer/DocumentViewer_Screen.dart';
 
 class ListViewBuilder extends StatelessWidget {
@@ -62,8 +62,35 @@ class ListViewBuilder extends StatelessWidget {
                       // viewDocument(url: material[index]['url'], context);
                     },
                     child: Card(
-                      child: ListTile(
-                        title: Text(material[index]['name']),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15.0),
+                      ),
+                      child: ClipPath(
+                        child: Container(
+                          padding: EdgeInsets.all(10),
+                          decoration: BoxDecoration(
+                            border: Border(
+                              left: BorderSide(
+                                  color: Colors.greenAccent, width: 5),
+                            ),
+                          ),
+                          child: ListTile(
+                            // tileColor: Color.fromARGB(255, 0, 115, 147),
+                            // shape: RoundedRectangleBorder(
+                            //     borderRadius: BorderRadius.circular(10.0)),
+                            title: Text(
+                              material[index]['name'],
+                              style: GoogleFonts.lato(
+                                textStyle:
+                                    Theme.of(context).textTheme.headline4,
+                                color: Colors.black,
+                                fontSize: 22,
+                                fontWeight: FontWeight.w700,
+                                fontStyle: FontStyle.italic,
+                              ),
+                            ),
+                          ),
+                        ),
                       ),
                     ),
                   );

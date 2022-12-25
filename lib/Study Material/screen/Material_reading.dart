@@ -3,6 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/rendering.dart';
 import 'package:pictira/SidePanel.dart';
 import '../widget/documentReader.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../widget/Listview_builder.dart';
 
 class MaterialReading extends StatelessWidget {
@@ -102,7 +103,16 @@ class MaterialReading extends StatelessWidget {
           } catch (e) {
             return Scaffold(
               appBar: AppBar(
-                title: Text(subName),
+                title: Text(
+                  subName,
+                  style: GoogleFonts.lato(
+                    textStyle: Theme.of(context).textTheme.headline4,
+                    color: Color.fromARGB(255, 196, 223, 21),
+                    fontSize: 17,
+                    fontWeight: FontWeight.w700,
+                    fontStyle: FontStyle.italic,
+                  ),
+                ),
                 backgroundColor: Colors.indigo,
               ),
 
