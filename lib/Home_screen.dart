@@ -6,6 +6,7 @@ import './Study Material/screen/BranchTabs_screen.dart';
 import './Study Material/screen/FirstYear_screen.dart';
 import './Study Material/widget/image_slider.dart';
 import './SidePanel.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class HomeScreen extends StatefulWidget {
   DateTime currentDate;
@@ -27,7 +28,7 @@ class _HomeScreenState extends State<HomeScreen> {
         decoration: BoxDecoration(
           image: DecorationImage(
             image: AssetImage('images/rm347-porpla-02-a-01.jpg'),
-            fit: BoxFit.fitHeight,
+            fit: BoxFit.cover,
           ),
         ),
         child: Scaffold(
@@ -192,30 +193,47 @@ class _HomeScreenState extends State<HomeScreen> {
           body: ListView(
             children: <Widget>[
               Padding(
-                padding: const EdgeInsets.only(top: 20),
+                padding: const EdgeInsets.only(top: 30),
                 child: ImageSlider(),
               ),
               SizedBox(
                 height: screenSize.height * 0.05,
               ),
+              // TODO dyanamic karrna hai ise
               Padding(
-                padding: const EdgeInsets.only(bottom: 20, left: 20, right: 20),
+                padding: const EdgeInsets.only(left: 30, right: 30),
+                // child: FittedBox(
                 child: Container(
-                  // color: Color.fromARGB(255, 90, 146, 161),
+                  height: screenSize.height * 0.06,
+                  width: screenSize.width * 0.2,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Color.fromARGB(255, 0, 115, 147),
+                  ),
+                  // child: FittedBox(
                   child: Text(
                     'Happy Mugging!',
                     textAlign: TextAlign.center,
-                    style: TextStyle(
-                      // color: Colors.white,
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 40,
+                    style: GoogleFonts.lato(
+                      textStyle: Theme.of(context).textTheme.headline4,
+                      color: Color.fromARGB(255, 196, 223, 21),
+                      // color: Colors.blueAccent,
+                      fontSize: 38,
+                      fontWeight: FontWeight.w700,
+                      fontStyle: FontStyle.italic,
                     ),
+                    // TextStyle(
+                    //   color: Colors.black,
+                    //   fontWeight: FontWeight.bold,
+                    //   fontSize: 40,
+                    // ),
                   ),
+                  // ),
                 ),
+                // ),
               ),
               SizedBox(
-                height: screenSize.height * 0.04,
+                height: screenSize.height * 0.1,
               ),
 
               // First Year Button
@@ -241,7 +259,13 @@ class _HomeScreenState extends State<HomeScreen> {
                           },
                           child: Text(
                             'First Year',
-                            style: TextStyle(fontSize: 20, color: Colors.black),
+                            style: GoogleFonts.lato(
+                              textStyle: Theme.of(context).textTheme.headline4,
+                              color: Color.fromARGB(255, 196, 223, 21),
+                              fontSize: 20,
+                              fontWeight: FontWeight.w700,
+                              fontStyle: FontStyle.italic,
+                            ),
                           ),
                         ),
                       ),
@@ -275,7 +299,13 @@ class _HomeScreenState extends State<HomeScreen> {
                           },
                           child: Text(
                             'Second Year',
-                            style: TextStyle(fontSize: 20, color: Colors.black),
+                            style: GoogleFonts.lato(
+                              textStyle: Theme.of(context).textTheme.headline4,
+                              color: Color.fromARGB(255, 196, 223, 21),
+                              fontSize: 20,
+                              fontWeight: FontWeight.w700,
+                              fontStyle: FontStyle.italic,
+                            ),
                           ),
                         ),
                       ),
@@ -311,7 +341,13 @@ class _HomeScreenState extends State<HomeScreen> {
                           },
                           child: Text(
                             'Third Year',
-                            style: TextStyle(fontSize: 20, color: Colors.black),
+                            style: GoogleFonts.lato(
+                              textStyle: Theme.of(context).textTheme.headline4,
+                              color: Color.fromARGB(255, 196, 223, 21),
+                              fontSize: 20,
+                              fontWeight: FontWeight.w700,
+                              fontStyle: FontStyle.italic,
+                            ),
                           ),
                         ),
                       ),
@@ -341,7 +377,13 @@ class _HomeScreenState extends State<HomeScreen> {
                           },
                           child: Text(
                             'Fourth Year',
-                            style: TextStyle(fontSize: 20, color: Colors.black),
+                            style: GoogleFonts.lato(
+                              textStyle: Theme.of(context).textTheme.headline4,
+                              color: Color.fromARGB(255, 196, 223, 21),
+                              fontSize: 20,
+                              fontWeight: FontWeight.w700,
+                              fontStyle: FontStyle.italic,
+                            ),
                           ),
                         ),
                       ),

@@ -7,29 +7,30 @@ class ImageSlider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ImageProvider a = AssetImage('images/pictira_background_1.jpg');
+    var screenSize = MediaQuery.of(context).size;
 
     try {
       return Container(
-        height: 230,
+        height: screenSize.height * 0.25,
         width: 500,
         child: ListView(
           children: [
             CarouselSlider(
               options: CarouselOptions(
-                height: 200,
+                height: screenSize.height * 0.24,
                 enlargeCenterPage: true,
                 autoPlay: true,
-                viewportFraction: 1.0,
-                autoPlayCurve: Curves.ease,
+                viewportFraction: 2.0,
+                // autoPlayCurve: Curves.ease,
                 enableInfiniteScroll: true,
                 autoPlayAnimationDuration: Duration(milliseconds: 800),
               ),
               items: [
                 Container(
                   width: 400,
-                  height: 300,
+                  height: screenSize.height * 0.24,
                   child: BackdropFilter(
-                    filter: ImageFilter.blur(sigmaX: 2, sigmaY: 2),
+                    filter: ImageFilter.blur(sigmaX: 0, sigmaY: 1),
                     child: Container(
                       child: Align(
                         alignment: Alignment.center,
@@ -57,9 +58,9 @@ class ImageSlider extends StatelessWidget {
                 ),
                 Container(
                   width: 400,
-                  height: 300,
+                  height: screenSize.height * 0.24,
                   child: BackdropFilter(
-                    filter: ImageFilter.blur(sigmaX: 2, sigmaY: 2),
+                    filter: ImageFilter.blur(sigmaX: 0.5, sigmaY: 0.5),
                     child: Container(
                       child: Align(
                         alignment: Alignment.center,
@@ -87,7 +88,7 @@ class ImageSlider extends StatelessWidget {
                 ),
                 Container(
                   width: 400,
-                  height: 300,
+                  height: screenSize.height * 0.24,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
                     image: DecorationImage(
@@ -96,7 +97,7 @@ class ImageSlider extends StatelessWidget {
                     ),
                   ),
                   child: BackdropFilter(
-                    filter: ImageFilter.blur(sigmaX: 2, sigmaY: 2),
+                    filter: ImageFilter.blur(sigmaX: 0.5, sigmaY: 0.5),
                     child: Container(
                       child: Align(
                         alignment: Alignment.center,
