@@ -333,7 +333,9 @@ class _AuthenticateState extends State<Authenticate> {
                       ),
                       onChanged: (val) {
                         setState(() {
-                          _email = val;
+                          setState(() {
+                            _email = val.replaceAll(' ', '');
+                          });
                         });
                       },
                       validator: (value) {
