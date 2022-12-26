@@ -196,9 +196,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 padding: const EdgeInsets.only(top: 30),
                 child: ImageSlider(),
               ),
-              SizedBox(
-                height: screenSize.height * 0.05,
-              ),
+              // TODO dyanamic wapas lao
+              // SizedBox(
+              //   height: screenSize.height * 0.05,
+              // ),
               // TODO dyanamic karrna hai ise
               Padding(
                 padding: const EdgeInsets.only(left: 30, right: 30),
@@ -208,26 +209,26 @@ class _HomeScreenState extends State<HomeScreen> {
                   width: screenSize.width * 0.2,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
-                    color: Color.fromARGB(255, 0, 115, 147),
+                    // color: Color.fromARGB(255, 64, 164, 192),
                   ),
                   // child: FittedBox(
-                  child: Text(
-                    'Happy Mugging!',
-                    textAlign: TextAlign.center,
-                    style: GoogleFonts.lato(
-                      textStyle: Theme.of(context).textTheme.headline4,
-                      color: Color.fromARGB(255, 196, 223, 21),
-                      // color: Colors.blueAccent,
-                      fontSize: 38,
-                      fontWeight: FontWeight.w700,
-                      fontStyle: FontStyle.italic,
-                    ),
-                    // TextStyle(
-                    //   color: Colors.black,
-                    //   fontWeight: FontWeight.bold,
-                    //   fontSize: 40,
-                    // ),
-                  ),
+                  // child: Text(
+                  //   'Happy Mugging!',
+                  //   textAlign: TextAlign.center,
+                  //   style: GoogleFonts.lato(
+                  //     textStyle: Theme.of(context).textTheme.headline4,
+                  //     color: Color.fromARGB(255, 56, 240, 66),
+                  //     // color: Colors.,
+                  //     fontSize: 38,
+                  //     fontWeight: FontWeight.w700,
+                  //     fontStyle: FontStyle.italic,
+                  //   ),
+                  //   // TextStyle(
+                  //   //   color: Colors.black,
+                  //   //   fontWeight: FontWeight.bold,
+                  //   //   fontSize: 40,
+                  //   // ),
+                  // ),
                   // ),
                 ),
                 // ),
@@ -246,7 +247,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       elevation: 10,
                       child: Container(
                         width: screenSize.width / 2.5,
-                        height: 100,
+                        height: 130,
                         child: ElevatedButton(
                           // color: Colors.orange,
                           onPressed: () {
@@ -262,7 +263,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             style: GoogleFonts.lato(
                               textStyle: Theme.of(context).textTheme.headline4,
                               color: Color.fromARGB(255, 196, 223, 21),
-                              fontSize: 20,
+                              fontSize: 23,
                               fontWeight: FontWeight.w700,
                               fontStyle: FontStyle.italic,
                             ),
@@ -280,7 +281,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       elevation: 10,
                       child: Container(
                         width: screenSize.width / 2.5,
-                        height: 100,
+                        height: 130,
                         child: ElevatedButton(
                           // color: Colors.green[300],
                           onPressed: () {
@@ -302,7 +303,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             style: GoogleFonts.lato(
                               textStyle: Theme.of(context).textTheme.headline4,
                               color: Color.fromARGB(255, 196, 223, 21),
-                              fontSize: 20,
+                              fontSize: 23,
                               fontWeight: FontWeight.w700,
                               fontStyle: FontStyle.italic,
                             ),
@@ -324,7 +325,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20)),
                         width: screenSize.width / 2.5,
-                        height: 100,
+                        height: 130,
                         child: ElevatedButton(
                           // color: Colors.green,
                           onPressed: () {
@@ -344,7 +345,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             style: GoogleFonts.lato(
                               textStyle: Theme.of(context).textTheme.headline4,
                               color: Color.fromARGB(255, 196, 223, 21),
-                              fontSize: 20,
+                              fontSize: 23,
                               fontWeight: FontWeight.w700,
                               fontStyle: FontStyle.italic,
                             ),
@@ -359,7 +360,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       elevation: 10,
                       child: Container(
                         width: screenSize.width / 2.5,
-                        height: 100,
+                        height: 130,
                         child: ElevatedButton(
                           // color: Colors.yellow,
                           onPressed: () {
@@ -380,7 +381,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             style: GoogleFonts.lato(
                               textStyle: Theme.of(context).textTheme.headline4,
                               color: Color.fromARGB(255, 196, 223, 21),
-                              fontSize: 20,
+                              fontSize: 23,
                               fontWeight: FontWeight.w700,
                               fontStyle: FontStyle.italic,
                             ),

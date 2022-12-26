@@ -81,8 +81,8 @@ class ListViewBuilderScreen extends StatelessWidget {
                             context,
                             MaterialPageRoute(
                                 builder: (ctx) => viewDocument(
-                                      url: material[index]['url'],
-                                    )));
+                                    url: material[index]['url'],
+                                    docName: material[index]['name'])));
                       },
                       child: Card(
                         shape: RoundedRectangleBorder(

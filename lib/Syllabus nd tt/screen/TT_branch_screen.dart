@@ -42,6 +42,7 @@ class TtBranchScreen extends StatelessWidget {
                           MaterialPageRoute(
                               builder: (ctx) => viewDocument(
                                     url: branch[index]['url'],
+                                    docName: branch[index]['name'],
                                   )));
                       // TODO Check why context was required
                       // viewDocument(branch[index]['url'], context);

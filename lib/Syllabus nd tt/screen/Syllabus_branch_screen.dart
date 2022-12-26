@@ -42,6 +42,7 @@ class SyllabusBranchScreen extends StatelessWidget {
                             MaterialPageRoute(
                                 builder: (ctx) => viewDocument(
                                       url: branch[index]['url'],
+                                      docName: branch[index]['name'],
                                     )));
                         // TODO Check why context was required
                         // viewDocument(url: branch[index]['url'], context);

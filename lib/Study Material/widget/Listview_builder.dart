@@ -57,6 +57,7 @@ class ListViewBuilder extends StatelessWidget {
                           MaterialPageRoute(
                               builder: (ctx) => viewDocument(
                                     url: material[index]['url'],
+                                    docName: material[index]['name'],
                                   )));
                       // TODO Check why context was required
                       // viewDocument(url: material[index]['url'], context);

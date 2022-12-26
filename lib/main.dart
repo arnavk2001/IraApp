@@ -102,7 +102,7 @@ class PICTIRA extends StatelessWidget {
         Notices.routeName: (context) =>
             Notices(currentDate: DateTime(2001, 6, 15, 17, 30)),
 
-        viewDocument.routeName: (context) => viewDocument(url: "Test"),
+        viewDocument.routeName: (context) => viewDocument(url: "Test", docName:"Test"),
 
         NoticesTabs.routeName: (context) => NoticesTabs(),
         //ResetPasswordScreen.routeName: (context) => ResetPasswordScreen(),

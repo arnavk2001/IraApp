@@ -10,9 +10,10 @@ import 'package:flutter/foundation.dart';
 
 class viewDocument extends StatefulWidget {
   final String url;
+  final String docName;
   static final routeName = '/HomeScreen';
   // BuildContext context;
-  viewDocument({required this.url});
+  viewDocument({required this.url,required this.docName});
   @override
   _viewDocument createState() => _viewDocument();
 }
