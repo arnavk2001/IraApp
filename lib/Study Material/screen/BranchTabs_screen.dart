@@ -89,27 +89,35 @@ class _BranchTabsState extends State<BranchTabs> {
         drawer: SidePanel(
           currentDate: widget.currentDate,
         ),
-        body: TabBarView(
-          children: [
-            SubjectsList(
-              currentDate: DateTime(2001, 6, 15, 17, 13),
-              branch: "Computer " + widget.yearN,
-              sem: isSem1 ? "sem 1" : "sem 2",
-              // sem: isSem1 ? "Sem 1" : "Sem 2",
+        body: Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage('images/Star_wars_for_whatsapp.jpg'),
+              fit: BoxFit.cover,
             ),
-            SubjectsList(
-              currentDate: DateTime(2001, 6, 15, 17, 13),
-              branch: "IT " + widget.yearN,
-              sem: isSem1 ? "sem 1" : "sem 2",
-              // sem: isSem1 ? "Sem 1" : "Sem 2",
-            ),
-            SubjectsList(
-              currentDate: DateTime(2001, 6, 15, 17, 13),
-              branch: "EnTC " + widget.yearN,
-              sem: isSem1 ? "sem 1" : "sem 2",
-              // sem: isSem1 ? "Sem 1" : "Sem 2",
-            ),
-          ],
+          ),
+          child: TabBarView(
+            children: [
+              SubjectsList(
+                currentDate: DateTime(2001, 6, 15, 17, 13),
+                branch: "Computer " + widget.yearN,
+                sem: isSem1 ? "sem 1" : "sem 2",
+                // sem: isSem1 ? "Sem 1" : "Sem 2",
+              ),
+              SubjectsList(
+                currentDate: DateTime(2001, 6, 15, 17, 13),
+                branch: "IT " + widget.yearN,
+                sem: isSem1 ? "sem 1" : "sem 2",
+                // sem: isSem1 ? "Sem 1" : "Sem 2",
+              ),
+              SubjectsList(
+                currentDate: DateTime(2001, 6, 15, 17, 13),
+                branch: "EnTC " + widget.yearN,
+                sem: isSem1 ? "sem 1" : "sem 2",
+                // sem: isSem1 ? "Sem 1" : "Sem 2",
+              ),
+            ],
+          ),
         ),
       ),
     );

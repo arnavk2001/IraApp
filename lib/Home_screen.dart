@@ -27,7 +27,7 @@ class _HomeScreenState extends State<HomeScreen> {
         // color: Color.fromARGB(255, 239, 252, 251),
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('images/rm347-porpla-02-a-01.jpg'),
+            image: AssetImage('images/stars_wars.jpg'),
             fit: BoxFit.cover,
           ),
         ),

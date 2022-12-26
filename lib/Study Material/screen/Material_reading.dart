@@ -34,7 +34,7 @@ class MaterialReading extends StatelessWidget {
           return Scaffold(
             appBar: AppBar(
               title: Text(title),
-              backgroundColor: Colors.indigo,
+              backgroundColor: Color.fromARGB(255, 71, 74, 91),
             ),
 
             //drawer: SidePanel(currentDate: currentDate,),
@@ -69,22 +69,30 @@ class MaterialReading extends StatelessWidget {
                   backgroundColor: Colors.indigo,
                 ),
                 //drawer: SidePanel(currentDate: currentDate,),
-                body: GridView.builder(
-                    itemCount: subjects.length,
-                    itemBuilder: (BuildContext ctx, int index) {
-                      return DocumentReader(
-                        currentDate: currentDate,
-                        name: subjects[index],
-                        branch: document,
-                        sem: path,
-                        title: title,
-                      );
-                    },
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount:
-                            (subjects[0].runtimeType.toString() == 'String')
-                                ? 2
-                                : 1)),
+                body: Container(
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage('images/Shinchan.jpg'),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                  child: GridView.builder(
+                      itemCount: subjects.length,
+                      itemBuilder: (BuildContext ctx, int index) {
+                        return DocumentReader(
+                          currentDate: currentDate,
+                          name: subjects[index],
+                          branch: document,
+                          sem: path,
+                          title: title,
+                        );
+                      },
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount:
+                              (subjects[0].runtimeType.toString() == 'String')
+                                  ? 2
+                                  : 1)),
+                ),
               );
             } else
               return Scaffold(
@@ -94,10 +102,18 @@ class MaterialReading extends StatelessWidget {
                 ),
                 backgroundColor: Color.fromARGB(255, 239, 252, 251),
                 //drawer: SidePanel(currentDate: currentDate,),
-                body: ListViewBuilder(
-                  currentDate: currentDate,
-                  path: path,
-                  teacherName: document,
+                body: Container(
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage('images/Happy_cow.jpg'),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                  child: ListViewBuilder(
+                    currentDate: currentDate,
+                    path: path,
+                    teacherName: document,
+                  ),
                 ),
               );
           } catch (e) {
