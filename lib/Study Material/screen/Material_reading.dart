@@ -72,7 +72,7 @@ class MaterialReading extends StatelessWidget {
                 body: Container(
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage('images/Shinchan.jpg'),
+                      image: AssetImage('images/Black_Sabbath.jpg'),
                       fit: BoxFit.cover,
                     ),
                   ),

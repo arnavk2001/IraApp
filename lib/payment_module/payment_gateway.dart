@@ -74,6 +74,7 @@ class _PaymentGatewayState extends State<PaymentGateway> {
               height: height * 0.05,
             ),
             Center(
+              // TODO make it look appeleaing
               child: Text(
                 "Hey ${widget.userName},\n\n"
                 "Perks of Subscribing* - \n"
@@ -232,6 +233,7 @@ class _PaymentGatewayState extends State<PaymentGateway> {
   }
 
   void _handlePaymentError(PaymentFailureResponse response) {
+    // TODO make
     //Have a look
     // var message,walletName;
     // Object responseHere=response ?? {message:"hi",walletName:"Yo"};
