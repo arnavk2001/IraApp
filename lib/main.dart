@@ -8,7 +8,6 @@ import 'package:pictira/Authentication/VerifyEmail.dart';
 import 'package:pictira/Authentication/VerifySubscription.dart';
 import 'package:pictira/Home_screen.dart';
 import './Study Material/screen/Material_reading.dart';
-import 'DocumentViewer/DocumentViewer_Screen.dart';
 import 'Notices/screen/Notices.dart';
 import 'Notices/screen/NoticesTabs.dart';
 import 'package:pictira/SidePanel.dart';

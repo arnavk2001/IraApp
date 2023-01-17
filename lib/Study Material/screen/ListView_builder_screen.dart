@@ -3,7 +3,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:pictira/SidePanel.dart';
 import 'package:pictira/DocumentViewer/documentViewer.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../../DocumentViewer/DocumentViewer_Screen.dart';
 
 class ListViewBuilderScreen extends StatelessWidget {
   DateTime currentDate;

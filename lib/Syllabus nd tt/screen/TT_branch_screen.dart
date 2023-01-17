@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:pictira/DocumentViewer/DocumentViewer_Screen.dart';
 import 'package:pictira/DocumentViewer/documentViewer.dart';
 
 class TtBranchScreen extends StatelessWidget {

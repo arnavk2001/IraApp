@@ -13,7 +13,8 @@ class viewDocument extends StatefulWidget {
   final String docName;
   static final routeName = '/HomeScreen';
   // BuildContext context;
-  viewDocument({required this.url,required this.docName});
+  viewDocument({required this.url, required this.docName});
+  // String docName1=docName;
   @override
   _viewDocument createState() => _viewDocument();
 }
@@ -49,7 +50,7 @@ class _viewDocument extends State<viewDocument> {
           backgroundColor: Colors.teal[100],
           elevation: 0,
           // TODO Add name of document
-          title: Text("DOCUMENT NAME"),
+          title: Text("Document Name"),
         ),
         body: SafeArea(
           child: SfPdfViewer.network(
